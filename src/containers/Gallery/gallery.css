@@ -1,0 +1,46 @@
+.gallery {
+  display: block;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.gallery li {
+  overflow-y: hidden;
+  margin-bottom: 2rem;
+}
+
+.gallery li.vertical img {
+  transform: rotate(90deg);
+}
+
+.gallery li.vertical a {
+  transform: rotate(90deg) scale(0.9);
+}
+
+.gallery ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.quarter {
+  float: left;
+  margin: 0 0 0 2rem;
+  list-style: none;
+  width: calc(25% - 2rem);
+}
+
+.quarter.first {
+  margin-left: 0;
+  clear: left;
+}
+
+@media screen and (max-width: 750px) {
+  .quarter {
+    display: block;
+    float: none;
+    width: auto;
+    margin: 0 0 50px 0;
+    padding: 0;
+  }
+}

@@ -1,0 +1,35 @@
+.imgCaption {
+    font-size: 12px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.mainImg {
+    max-width: 35%;
+    margin:0 0 10px 15px; 
+    clear: right;
+    float: right;
+}
+
+.secondaryImg {
+    margin: 0 auto;
+    max-width: 50%;
+}
+
+@media screen and (max-width:750px){
+    .mainImg {
+        float: right;
+        margin:0 0 10px 15px;
+    }
+}
+
+
+@media screen and (max-width:415px){
+    .mainImg {
+        float: none;
+        max-width: 100%;
+        margin: 0;
+    }
+}

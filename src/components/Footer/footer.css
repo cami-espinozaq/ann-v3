@@ -1,0 +1,132 @@
+.footer {
+    padding: 40px 0;
+}
+
+.footer .heading {
+    margin-bottom:50px; 
+    font-size:1.2rem;
+    color:#FFFFFF;
+    text-align: center;
+}
+
+.footer .linklist li {
+    display:block; 
+    margin-bottom:15px; 
+    padding:0 0 15px 40px; 
+    border-bottom:1px solid;
+    border-color:rgba(255,255,255,.1);
+    position:relative;
+}
+.footer .linklist li:last-child {
+    margin: 0; 
+    padding:0 0 0 40px; 
+    border:none;
+}
+
+.footer .centeredBlock {
+    width: 55%;
+    margin: 0 auto;
+}
+
+.footer .listWithImg ul {
+    float: left;
+    width: 50%;
+    margin-right: 10px;
+    padding: 0;
+}
+
+.footer .listWithImg img {
+    float: left;
+    width: calc(50% - 10px);
+    opacity: 0.6;
+}
+
+.footer .svg-inline--fa {
+    margin-right: 8px;
+}
+
+.backtotop {
+    z-index:999; display:inline-block; 
+    position:fixed; 
+    bottom:20px; 
+    right:20px; 
+    width:36px; 
+    height:36px; 
+    line-height:36px; 
+    font-size:16px; 
+    text-align:center; 
+    opacity:.2;
+    color:#FFFFFF; 
+    background-color:#EA5616;
+}
+
+.backtotop i {
+    display:block;
+    width:100%; 
+    height:100%; 
+    line-height:inherit;
+}
+
+.backtotop:hover {
+    opacity:1;
+}
+
+
+.copyright {
+    padding:20px 0;
+}
+
+.copyright * {
+    margin: 0; 
+    padding: 0;
+}
+
+.copyright p:first-child {
+    float: left;
+}
+
+.copyright p:last-child {
+    float: right;
+}
+
+.upperRow {
+    color:#A8A7A6; 
+    background-color:#191A1E;
+}
+.lowerRow, .copyright a {
+    color:#A8A7A6; 
+    background-color:#0C0C0C;
+}
+
+@media screen and (max-width:750px){
+    .footer {
+        padding-bottom:30px;
+    }
+    
+    .footer .centeredBlock {
+        width: 75%;
+    }
+
+    .copyright p, .copyright p:first-child, .copyright p:last-child {
+        display: block; 
+        float: none;
+    }
+}
+
+@media screen and (max-width:550px){
+    .footer .centeredBlock {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:415px){
+    .footer .centeredBlock,
+    .footer .listWithImg ul,
+    .footer .listWithImg img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:900px){
+	.copyright p:first-of-type{margin-bottom:10px;}
+}
