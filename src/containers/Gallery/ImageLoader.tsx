@@ -5,7 +5,11 @@ const ImageLoader = ({ imageSrc, imgLoading, loadedCallback }: { imageSrc: strin
     const img = new Image();
     img.src = imageSrc;
     img.onload = () => {
-      loadedCallback?.();
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          loadedCallback?.();
+        });
+      });
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [imageSrc]);

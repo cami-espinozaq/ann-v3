@@ -4,31 +4,25 @@ import "./gallery.css";
 import ImageLoader from "./ImageLoader";
 import { useState } from "react";
 
-const images = Object.values(import.meta.glob("/src/assets/images/gallery/*.{png,jpg,jpeg,PNG,JPEG}", { eager: true, as: "url" }));
+const images = Object.values(import.meta.glob("/src/assets/images/gallery-lowres/*.{png,jpg,jpeg,PNG,JPEG}", { eager: true, as: "url" }));
 
 const ImageRow = ({ images, loadType }: { images: string[]; loadType: "eager" | "lazy" }) => {
   const [loadedCounter, setLoadedCounter] = useState(0);
-
   return (
     <>
-      <li className={`quarter first ${loadedCounter < 4 ? "hidden" : ""}`}>
-        <ImageLoader imageSrc={images[0]} imgLoading={loadType} loadedCallback={() => setLoadedCounter((c) => c + 1)} />
-      </li>
-      <li className={`quarter ${loadedCounter < 4 ? "hidden" : ""}`}>
-        <ImageLoader imageSrc={images[1]} imgLoading={loadType} loadedCallback={() => setLoadedCounter((c) => c + 1)} />
-      </li>
-      <li className={`quarter ${loadedCounter < 4 ? "hidden" : ""}`}>
-        <ImageLoader imageSrc={images[2]} imgLoading={loadType} loadedCallback={() => setLoadedCounter((c) => c + 1)} />
-      </li>
-      <li className={`quarter ${loadedCounter < 4 ? "hidden" : ""}`}>
-        <ImageLoader imageSrc={images[3]} imgLoading={loadType} loadedCallback={() => setLoadedCounter((c) => c + 1)} />
-      </li>
+      {images.map((img, i) => {
+        return (
+          <li key={i} className={`quarter ${i % 4 === 0 ? "first" : ""} ${loadedCounter < 4 ? "hidden" : ""}`}>
+            <ImageLoader imageSrc={img} imgLoading={loadType} loadedCallback={() => setLoadedCounter((c) => c + 1)} />
+          </li>
+        );
+      })}
       {loadedCounter < 4 && (
-        <div role="status" className="w-full animate-pulse flex gap-2">
-          <div className="h-40 bg-gray-100 flex-1 mb-4"></div>
-          <div className="h-40 bg-gray-100 flex-1 mb-4"></div>
-          <div className="h-40 bg-gray-100 flex-1 mb-4"></div>
-          <div className="h-40 bg-gray-100 flex-1 mb-4"></div>
+        <div role="status" className="w-full animate-pulse flex">
+          <li className="h-40 bg-gray-100 quarter first"></li>
+          <li className="h-40 bg-gray-100 quarter"></li>
+          <li className="h-40 bg-gray-100 quarter"></li>
+          <li className="h-40 bg-gray-100 quarter"></li>
         </div>
       )}
     </>
@@ -36,17 +30,6 @@ const ImageRow = ({ images, loadType }: { images: string[]; loadType: "eager" | 
 };
 
 const Gallery = () => {
-  //   const [imagesList, setImagesList] = useState<string[]>([]);
-
-  // const imagesWrapper = images.map((img: string, i: number) => {
-  //   const newLineClass = i % 4 === 0 ? " first" : "";
-  //   return (
-  //     <li className={"quarter" + newLineClass} key={i}>
-  //       <ImageLoader imageSrc={img} imgLoading={i < 8 ? "eager" : "lazy"} />
-  //     </li>
-  //   );
-  // });
-
   const totalRows = Math.ceil(images.length / 4);
   const imagesWrapper = [];
   for (let row = 0; row < totalRows; row++) {

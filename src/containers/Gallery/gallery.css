@@ -27,7 +27,7 @@
   float: left;
   margin: 0 0 0 2rem;
   list-style: none;
-  width: calc(25% - 2rem);
+  width: calc(25% - 1.5rem);
 }
 
 .quarter.first {

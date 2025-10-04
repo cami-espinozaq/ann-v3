@@ -9,171 +9,187 @@ File: Framework CSS
 */
 
 html {
-    overflow-y:scroll; 
-    overflow-x:hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
-html, body {
-    margin:0; 
-    padding:0; 
-    font-size:14px; 
-    line-height:1.6em;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.6em;
 }
 
 body {
-    color:#A8A7A6; 
-    background-color:#0C0C0C;
-    font-family:'Hind', sans-serif;
+  color: #a8a7a6;
+  background-color: #0c0c0c;
+  font-family: "Hind", sans-serif;
 }
 
-*, *::before, *::after {
-    box-sizing:border-box;
-    transition: all .28s ease-in-out;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  transition: all 0.28s ease-in-out;
 }
 
 a {
-    color:#EA5616;
-    outline:none; 
-    text-decoration:none;
+  color: #ea5616;
+  outline: none;
+  text-decoration: none;
 }
 
-a:active, a:focus {
-    background:transparent;
+a:active,
+a:focus {
+  background: transparent;
 }
 
-h1, h2, h3, h4, h5, h6, .heading {
-    font-family:'Aleo', serif;
-    margin:0 0 20px 0; 
-    font-size:22px; 
-    line-height:normal; 
-    font-weight:normal; 
-    text-transform:uppercase;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading {
+  font-family: "Aleo", serif;
+  margin: 0 0 20px 0;
+  font-size: 22px;
+  line-height: normal;
+  font-weight: normal;
+  text-transform: uppercase;
 }
 
-article, figure, header, main, nav {
-    display:block; 
-    margin:0; 
-    padding:0;
+article,
+figure,
+header,
+main,
+nav {
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
-nav ul, nav ol {
-    margin:0; 
-    padding:0; 
-    list-style:none;
+nav ul,
+nav ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 img {
-    width:auto; 
-    max-width:100%; 
-    height:auto; 
-    margin:0; 
-    padding:0; 
-    border:none; 
-    line-height:normal; 
-    vertical-align:middle;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  line-height: normal;
+  vertical-align: middle;
 }
 
 .hoc {
-    display:block; 
-    margin:0 auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .wrapper {
-    display:block; 
-    position:relative; 
-    width:100%; 
-    margin:0; 
-    padding:0; 
-    text-align:left; 
-    word-wrap:break-word;
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  word-wrap: break-word;
 }
 
 .clear {
-    display:block;
+  display: block;
 }
-.clear::before, .clear::after {
-    display:table; 
-    content:"";
+.clear::before,
+.clear::after {
+  display: table;
+  content: "";
 }
-.clear, .clear::after {
-    clear:both;
+.clear,
+.clear::after {
+  clear: both;
 }
 
 .container {
-    padding:100px 0;
+  padding: min(100px, 15%) 0;
 }
 
 .overlay {
-    position: relative; 
-    z-index: 0;
-    color:#FFFFFF; 
-    background-color:inherit;
+  position: relative;
+  z-index: 0;
+  color: #ffffff;
+  background-color: inherit;
 }
 
 .overlay::after {
-    display:block; 
-    position:absolute; 
-    top:0; 
-    left:0; 
-    width:100%; 
-    height:100%; 
-    content:""; 
-    z-index:-2;
-    color:inherit; 
-    background-color:rgba(0,0,0,.55);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  z-index: -2;
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.55);
 }
 
 .bgded {
-    background-position:center; 
-    background-repeat:no-repeat; 
-    background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .btn {
-    display:inline-block; 
-    padding:8px 18px 10px; 
-    text-transform:uppercase; 
-    border:1px solid;
-    color:#FFFFFF; 
-    background-color:#EA5616; 
-    border-color:#EA5616;
+  display: inline-block;
+  padding: 8px 18px 10px;
+  text-transform: uppercase;
+  border: 1px solid;
+  color: #ffffff;
+  background-color: #ea5616;
+  border-color: #ea5616;
 }
 
 .btn:hover {
-    color:inherit; 
-    background-color:transparent; 
-    border-color:inherit;
+  color: inherit;
+  background-color: transparent;
+  border-color: inherit;
 }
 
 .main-row {
-    color:#474747; 
-    background-color:#FFFFFF;
+  color: #474747;
+  background-color: #ffffff;
 }
 
 .parallax {
-    background-attachment: fixed;
+  background-attachment: fixed;
 }
-
 
 /* Media Queries ----------------------- */
 @-ms-viewport {
-    width: device-width;
+  width: device-width;
 }
 
-@media screen and (min-width:978px) {
-	.hoc {
-        max-width: 978px;
-    }
+@media screen and (min-width: 978px) {
+  .hoc {
+    max-width: 978px;
+  }
 }
 
-@media screen and (max-width:900px) {
-	.hoc {
-        max-width: 90%;
-    }
+@media screen and (max-width: 900px) {
+  .hoc {
+    max-width: 90%;
+  }
 }
 
-@media screen and (max-width:750px) {
-    .clear .clear > *:last-child {
-        margin-bottom: 0;
-    }
+@media screen and (max-width: 750px) {
+  .clear .clear > *:last-child {
+    margin-bottom: 0;
+  }
 }
