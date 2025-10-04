@@ -3,16 +3,17 @@ import Background from "../../assets/images/about/oxford2.jpeg";
 import "./gallery.css";
 import ImageLoader from "./ImageLoader";
 import { useState } from "react";
+import DialogCarousel from "./DialogCarousel";
 
-const images = Object.values(import.meta.glob("/src/assets/images/gallery-lowres/*.{png,jpg,jpeg,PNG,JPEG}", { eager: true, as: "url" }));
+const images = Object.values(import.meta.glob("@/assets/images/gallery-lowres/*.{png,jpg,jpeg,PNG,JPEG}", { eager: true, as: "url" }));
 
-const ImageRow = ({ images, loadType }: { images: string[]; loadType: "eager" | "lazy" }) => {
+const ImageRow = ({ images, loadType, onImgClick }: { images: string[]; loadType: "eager" | "lazy"; onImgClick: (index: number) => void }) => {
   const [loadedCounter, setLoadedCounter] = useState(0);
   return (
     <>
       {images.map((img, i) => {
         return (
-          <li key={i} className={`quarter ${i % 4 === 0 ? "first" : ""} ${loadedCounter < 4 ? "hidden" : ""}`}>
+          <li key={i} className={`quarter ${i % 4 === 0 ? "first" : ""} ${loadedCounter < 4 ? "hidden" : ""}`} onClick={() => onImgClick(i)}>
             <ImageLoader imageSrc={img} imgLoading={loadType} loadedCallback={() => setLoadedCounter((c) => c + 1)} />
           </li>
         );
@@ -36,8 +37,12 @@ const Gallery = () => {
     const startIdx = row * 4;
     const endIdx = startIdx + 4;
     const rowImages = images.slice(startIdx, endIdx);
-    imagesWrapper.push(<ImageRow key={row} images={rowImages} loadType={row < 1 ? "eager" : "lazy"} />);
+    imagesWrapper.push(
+      <ImageRow key={row} images={rowImages} loadType={row < 1 ? "eager" : "lazy"} onImgClick={(index: number) => setIsOpen(startIdx + index)} />
+    );
   }
+
+  const [isOpen, setIsOpen] = useState<false | number>(false);
 
   return (
     <>
@@ -52,6 +57,8 @@ const Gallery = () => {
           </figure>
         </main>
       </div>
+
+      <DialogCarousel isOpen={isOpen} setIsOpen={() => setIsOpen(false)} images={images} />
     </>
   );
 };
