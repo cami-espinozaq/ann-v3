@@ -5,20 +5,24 @@ import ImageLoader from "./ImageLoader";
 import { useState } from "react";
 import DialogCarousel from "./DialogCarousel";
 
-const images = Object.values(import.meta.glob("@/assets/images/gallery-lowres/*.{png,jpg,jpeg,PNG,JPEG}", { eager: true, as: "url" }));
+const images = Object.values(
+  import.meta.glob("@/assets/images/gallery-lowres/*.{png,jpg,jpeg,PNG,JPEG}", { eager: true, query: "?url", import: "default" })
+).map((mod) => mod as string);
 
 const ImageRow = ({ images, loadType, onImgClick }: { images: string[]; loadType: "eager" | "lazy"; onImgClick: (index: number) => void }) => {
   const [loadedCounter, setLoadedCounter] = useState(0);
+  const imgLength = images.length;
+
   return (
     <>
       {images.map((img, i) => {
         return (
-          <li key={i} className={`quarter ${i % 4 === 0 ? "first" : ""} ${loadedCounter < 4 ? "hidden" : ""}`} onClick={() => onImgClick(i)}>
+          <li key={i} className={`quarter ${i % 4 === 0 ? "first" : ""} ${loadedCounter < imgLength ? "hidden" : ""}`} onClick={() => onImgClick(i)}>
             <ImageLoader imageSrc={img} imgLoading={loadType} loadedCallback={() => setLoadedCounter((c) => c + 1)} />
           </li>
         );
       })}
-      {loadedCounter < 4 && (
+      {loadedCounter < imgLength && (
         <div role="status" className="w-full animate-pulse flex">
           <li className="h-40 bg-gray-100 quarter first"></li>
           <li className="h-40 bg-gray-100 quarter"></li>
